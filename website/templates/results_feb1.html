@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="../../docs-assets/ico/favicon.png">
+
+    <title>About You!</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Nhung custom bootstrap CSS -->
+    <link href="../static/dist/select/bootstrap-select.css" rel="stylesheet">
+
+    <link href="../static/dist/css/nhung_special.css" rel="stylesheet">
+
+    <link href="../static/dist/css/modern-business.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <!--<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>-->
+
+    <style type="text/css">
+
+      body {background:url("/static/pics/blue_skies2.png") no-repeat fixed top center;
+            background-size:150% 150% auto;}
+    </style>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+  <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="../static/dist/js/bootstrap.min.js"></script>
+    <script src="../static/dist/select/bootstrap-select.js"></script>
+    <script src="../static/dist/js/needle.js"></script>
+
+    <script src="../static/dist/js/modern-business.js"></script>
+    <script>
+
+  function onDocumentReady() {
+  var powerGauge = gauge('#power-gauge1', {
+    size: 300,
+    clipWidth: 300,
+    clipHeight: 300,
+    ringWidth: 60,
+    maxValue: 10,
+    transitionMs: 4000,
+  });
+  powerGauge.render();
+  
+  function updateReadings() {
+    // just pump in random data here...
+    powerGauge.update({{pvalues[0]}}*10);
+  }
+  
+
+  
+  // every few seconds update reading values
+  updateReadings({{pvalues[0]}}*10);
+  setInterval(function() {
+    updateReadings({{pvalues[0]}}*10);
+  }, 5 * 1000);
+};
+
+  </script>
+
+
+    <script type="text/javascript">
+        $(window).on('load', function () {
+
+            $('.selectpicker').selectpicker({
+                'selectedText': 'cat'
+            });
+
+            // $('.selectpicker').selectpicker('hide');
+        });
+    </script>
+    <title>Gauge</title>
+  <script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
+
+  <script>$(document).ready(function() {
+    $('#myCarousel').carousel({
+      interval: 10000
+  })
+});</script>
+
+      <style>
+
+        .modal-dialog {
+            width: 80%;
+        }
+        .modal-body {
+            height: 600px;
+        }
+
+      </style>
+
+   <script type="text/javascript">
+
+    $().ready(function(){
+
+        $('#disease').click(function() {
+            var btn = $(this);
+            $('#myModalLabel').html(btn.text());
+            $('#external').attr('src', btn.attr('url'));
+            $('#myModal').modal('show');
+        });
+        $('#treatment').click(function() {
+            var btn = $(this);
+            $('#myModalLabel2').html(btn.text());
+            $('#external2').attr('src', btn.attr('url'));
+            $('#myModal2').modal('show');
+        });
+
+        $('#disease2').click(function() {
+            var btn = $(this);
+            $('#myModalLabel3').html(btn.text());
+            $('#external3').attr('src', btn.attr('url'));
+            $('#myModal3').modal('show');
+        });
+        $('#treatment2').click(function() {
+            var btn = $(this);
+            $('#myModalLabel4').html(btn.text());
+            $('#external4').attr('src', btn.attr('url'));
+            $('#myModal4').modal('show');
+        });
+
+        $('#disease3').click(function() {
+            var btn = $(this);
+            $('#myModalLabel5').html(btn.text());
+            $('#external5').attr('src', btn.attr('url'));
+            $('#myModal5').modal('show');
+        });
+        $('#treatment3').click(function() {
+            var btn = $(this);
+            $('#myModalLabel6').html(btn.text());
+            $('#external6').attr('src', btn.attr('url'));
+            $('#myModal6').modal('show');
+        });
+
+        $('#disease4').click(function() {
+            var btn = $(this);
+            $('#myModalLabel7').html(btn.text());
+            $('#external7').attr('src', btn.attr('url'));
+            $('#myModal7').modal('show');
+        });
+        $('#treatment4').click(function() {
+            var btn = $(this);
+            $('#myModalLabel8').html(btn.text());
+            $('#external8').attr('src', btn.attr('url'));
+            $('#myModal8').modal('show');
+        });
+
+        $('#disease5').click(function() {
+            var btn = $(this);
+            $('#myModalLabe9').html(btn.text());
+            $('#external9').attr('src', btn.attr('url'));
+            $('#myModal9').modal('show');
+        });
+        $('#treatment5').click(function() {
+            var btn = $(this);
+            $('#myModalLabel10').html(btn.text());
+            $('#external10').attr('src', btn.attr('url'));
+            $('#myModal10').modal('show');
+        });
+
+
+    });
+
+    </script>
+  
+
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <!-- Static navbar -->
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand"><img height=50px width=100px src="static/pics/logo_small.png"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">          
+            <li><a href="/">Home</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="slides">Slides</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="panel panel-default">
+        <!-- /.row -->
+
+        <!-- Service Tabs -->
+
+        <div class="row">
+
+            <div class="col-lg-12">
+              <div>
+                <h1  style="font-size:46px;" class="page-header text-center">Diseases you are predisposed to:<br></br>
+                    <p style="font-size:24px;"> Click on the tabs below for more information</p></h1>
+                <ul id="myTab" class="nav nav-pills nav-justified font-size:28px">
+                    <li class="dis active" value=1 ><a href="#disease-one" data-toggle="tab">1. {{disease_name[0]}}</a>
+                    </li>
+                    <li class='dis' value=2  ><a href="#disease-two" data-toggle="tab">2. {{disease_name[1]}}</a>
+                    </li>
+                    <li class='dis'value=3  ><a href="#disease-three" data-toggle="tab">3. {{disease_name[2]}}</a>
+                    </li>
+                    <li class='dis'value=4  ><a href="#disease-four" data-toggle="tab">4. {{disease_name[3]}}</a>
+                    </li>
+                    <li class='dis'value=5  ><a href="#disease-five" data-toggle="tab">5. {{disease_name[4]}}</a>
+                    </li>
+                </ul>
+              </div>
+                <div id="myTabContent" class="tab-content row" style="position:absolute;left:3%;top:50px,text-align:center;">
+                    <div class="tab-pane fade in active" id="disease-one">
+                      <br></br>
+                      <div class="container col-md-4">
+                        <div class="panel panel-default border-radius:10px">
+                        <h2 class="text-center" >Your risk meter</h2>
+                        <div style="text-align:center" id="power-gauge1" width='300' height='300' style='width:300px;height:300px;position:absolute;top=50%;'></div></div>
+                      </div>
+                      <div class="panel panel-default col-md-7" style="left:5%;">
+                        <h2 class="text-center"> More about {{disease_name[0]}}:</h2>    
+                        <i class="fa fa-gear pull-left fa-4x"></i><p>{{disease_snippets[0]}}</p>
+                        <div class="btn-group" style="position:relative;left:40%;" id='disease'>
+                          <button type="button" class="btn-lg btn-primary" url={{d_links[0]}}>Learn More!</button>
+                        </div>
+                        <h2 class="text-center "> Treatment and Prevention of {{disease_name[0]}}:</h2>
+                        <p>{{treatment_snippets[0]}}</p>
+                         <div class="btn-group" style="position:relative;left:40%;" id="treatment">
+                        <button type="button" class="btn-lg btn-primary" url={{t_links[0]}}>Prevent it!</button>
+                        <br></br>
+                    </div>
+                    </div>
+                    </div>
+                    <div class="tab-pane fade" id="disease-two">
+                      <br></br>
+                      <div class="container col-md-4">
+                        <div class="panel panel-default">
+                        <h2 class="text-center">Your risk meter</h2>                    
+                        <div style="text-align:center" value=2  id="power-gauge2" width='300' height='300' style='width:300px;height:300px;position:relative;'></div></div></div>
+                        <div class="panel panel-default col-md-7" style="left:5%;">
+                        <h2 class="text-center"> More about {{disease_name[1]}}:</h2>
+                        <p>{{disease_snippets[1]}}</p>
+                        <div class="btn-group" style="position:relative;left:40%;" id='disease2'>
+                        <button type="button" class="btn-lg btn-primary" url={{d_links[1]}}>Learn More!</button>
+                      </div>
+                        <h2 class="text-center"> Treatment and Prevention of {{disease_name[1]}}:</h2>
+                        <p>{{treatment_snippets[1]}}</p>
+                         <div class="btn-group" style="position:relative;left:40%;" id="treatment2">
+                        <button type="button" class="btn-lg btn-primary openapage" url={{t_links[1]}}>Prevent it!</button>
+                        <br></br>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="tab-pane fade" id="disease-three">
+                      <br></br>
+                      <div class="container col-md-4">
+                        <div class="panel panel-default">
+                        <h2 class="text-center">Your risk meter</h2>
+                        <div style="text-align:center" value=3 id="power-gauge3" width='300' height='300' style='width:300px;height:300px;position:relative;'></div></div></div>
+                        <div class="panel panel-default col-md-7" style="left:5%">
+                        <h2 class="text-center"> More about {{disease_name[2]}}:</h2>
+                        <p>{{disease_snippets[2]}}</p>
+                        <div class="btn-group" style="position:relative;left:40%;" id='disease3'>
+                        <button type="button" class="btn-lg btn-primary " url={{d_links[2]}}>Learn More!</button>
+                      </div>
+                        <h2 class="text-center"> Treatment and Prevention of {{disease_name[2]}}:</h2>
+                        <p>{{treatment_snippets[2]}}</p>
+                         <div class="btn-group" style="position:relative;left:40%;" id="treatment3">
+                        <button type="button" class="btn-lg btn-primary openapage" url={{t_links[2]}}>Prevent it!</button>
+                        <br></br>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="tab-pane fade" id="disease-four">
+                      <br></br>
+                      <div class="container col-md-4">
+                        <div class="panel panel-default">
+                        <h2 class="text-center">Your risk meter</h2>
+                        <div style="text-align:center" value=4 id="power-gauge4" width='300' height='300' style='width:300px;height:300px;position:relative;'></div></div></div>
+                        <div class="panel panel-default col-md-7" style="left:5%">
+                        <h2 class="text-center"> More about {{disease_name[3]}}:</h2>
+                        <p>{{disease_snippets[3]}}</p>
+                        <div class="btn-group" style="position:relative;left:40%;" id='disease4'>
+                        <button type="button" class="btn-lg btn-primary" url={{d_links[3]}}>Learn More!</button>
+                      </div>
+                        <h2 class="text-center"> Treatment and Prevention of {{disease_name[3]}}:</h2>
+                        <p>{{treatment_snippets[3]}}</p>
+                         <div class="btn-group" style="position:relative;left:40%;" id="treatment4">
+                        <button type="button" class="btn-lg btn-primary openapage" url={{t_links[3]}}>Prevent it!</button>
+                        <br></br>
+                      </div>
+                    </div>
+                  </div>
+                    <div class="tab-pane fade" id="disease-five">
+                      <br></br>
+                      <div class="container col-md-4">
+                        <div class="panel panel-default">
+                        <h2 class="text-center">Your risk meter</h2>
+                        <div style="text-align:center" value=5 id="power-gauge5" width='300' height='300' style='width:300px;height:300px;position:relative;'></div></div></div>
+                        <div class="panel panel-default col-md-7" style="left:5%">
+                        <h2 class="text-center"> More about {{disease_name[4]}}:</h2>
+                        <p>{{disease_snippets[4]}}</p>
+                        <div class="btn-group" style="position:relative;left:40%;" id='disease5'>
+                        <button type="button" class="btn-lg btn-primary" url={{d_links[4]}}>Learn More!</button>
+                      </div>
+                        <h2 class="text-center"> Treatment and Prevention of {{disease_name[4]}}:</h2>
+                        <p>{{treatment_snippets[4]}}</p>
+                         <div class="btn-group" style="position:relative;left:40%;" id="treatment5">
+                        <button type="button" class="btn-lg btn-primary openapage" url={{t_links[4]}}>Prevent it!</button>
+                        <br></br>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+
+                <!--Modal for dynamic box-->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{d_links[0]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+  <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel2"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{t_links[0]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+
+                <!--Modal for dynamic box-->
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel3"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{d_links[1]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+  <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel4"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{t_links[1]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+
+                <!--Modal for dynamic box-->
+    <div class="modal fade" id="myModal5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel4"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{d_links[2]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+  <div class="modal fade" id="myModal6" tabindex="-1" role="dialog" aria-labelledby="myModalLabel6" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel6"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{t_links[2]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+
+                <!--Modal for dynamic box-->
+    <div class="modal fade" id="myModal7" tabindex="-1" role="dialog" aria-labelledby="myModalLabel7" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel7"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{d_links[3]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+  <div class="modal fade" id="myModal8" tabindex="-1" role="dialog" aria-labelledby="myModalLabel8" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel8"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{t_links[3]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+
+                <!--Modal for dynamic box-->
+    <div class="modal fade" id="myModal9" tabindex="-1" role="dialog" aria-labelledby="myModalLabel9" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel9"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{d_links[4]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--container-->
+  <div class="modal fade" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel10" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel10"></h4>
+          </div>
+          <div class="modal-body">
+            <iframe src={{t_links[4]}} width="100%" height="100%" frameborder="0" id="external"></iframe>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+  </div><!--contai-->
+
+
+        </div>
+        <!-- /.row -->
+    </div><!--container-->
+  </div>
+  </div>
+
+<script>
+
+$('.dis').click(function(){
+  divval = $(this)[0].value
+  console.log(divval)
+  var a = 0
+  if(divval == 1) a = {{pvalues[0]}}
+  if(divval == 2) a = {{pvalues[1]}}
+  if(divval == 3) a = {{pvalues[2]}}
+  if(divval == 4) a = {{pvalues[3]}}
+  if(divval == 5) a = {{pvalues[4]}}
+  console.log(a)
+
+  $('#power-gauge'+divval.toString())[0].innerHTML = ''
+  var powerGauge = gauge('#power-gauge'+divval.toString(), {
+    size: 300,
+    clipWidth: 300,
+    clipHeight: 300,
+    ringWidth: 60,
+    maxValue: 10,
+    transitionMs: 4000,
+  });
+  powerGauge.render();
+  
+  function updateReadings(myval) {
+    // just pump in random data here...
+    powerGauge.update(myval);
+  }
+  
+  
+  
+  // every few seconds update reading values
+  updateReadings(a*10);
+  setInterval(function() {
+    updateReadings(a*10);
+  }, 5 * 1000);
+});
+</script>
+    
+  </body>
+</html>

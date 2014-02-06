@@ -1,0 +1,361 @@
+import os
+from flask import Flask, render_template, request
+import MySQLdb as MS
+from pattern.web import Wikipedia, plaintext, Google
+from pattern.search import search
+import requests
+
+db = MS.connect(user="root", host="localhost")
+with db:
+	cursor=db.cursor()
+	sql='USE half_diseases'
+	cursor.execute(sql)
+
+app = Flask(__name__)
+app.debu = True
+
+@app.route("/")
+def healthyme():
+    return render_template('index.html') 
+
+@app.route('/results.html', methods=['POST'])
+def search():
+	inputs = request.form
+	age = inputs['age']
+	sex = inputs['sex']
+	race = inputs['race']
+	if age == '1-4':
+		Age = "Age='2a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+
+	if age == '5-14':
+		Age = "Age='3a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '15-24':
+		Age = "Age='4a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '25-34':
+		Age = "Age='5a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '35-44':
+		Age = "Age='6a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '45-54':
+		Age = "Age='7a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '55-64':
+		Age = "Age='8a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+
+	if age == '65-74':
+		Age = "Age='9a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+	if age == '75-84':
+		Age = "Age='10a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+
+	if age == '85+':
+		Age = "Age='11a'"
+		if sex == 'Female' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_asian;"
+
+		if sex == 'Female' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_black;"
+
+		if sex == 'Female' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_latino;"
+
+		if sex == 'Female' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_native;"
+
+		if sex == 'Female' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_f_white;"
+
+		if sex == 'Male' and race == 'Asian/Pacific Islander':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_asian;"
+
+		if sex == 'Male' and race == 'Black/African American':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_black;"
+
+		if sex == 'Male' and race == 'Hispanic':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_latino;"
+
+		if sex == 'Male' and race == 'Native American/Alaskan':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_native;"
+
+		if sex == 'Male' and race == 'White':
+			sql_query = "SELECT name FROM probabilities WHERE "+Age+" ORDER BY p_m_white;"
+
+	cursor.execute(sql_query)
+	rows = cursor.fetchall()
+	new_list=[''.join(list(rows[0])),''.join(list(rows[1])),''.join(list(rows[2])),''.join(list(rows[3])),''.join(list(rows[4]))]
+
+	#using pattern look up wikipedia article on top diseases
+	empty_link=[]
+	empty_text=[]
+
+	for index in new_list:
+		article=Google().search(index)
+		empty_link.append(article[0].url)
+		empty_text.append(plaintext(article[0].text))
+		
+	string_links=[''.join(list(empty_link[0])),''.join(list(empty_link[1])),''.join(list(empty_link[2])),''.join(list(empty_link[3])),''.join(list(empty_link[4]))]
+	string_links=[str(empty_link[0]),str(empty_link[1]),str(empty_link[2]),str(empty_link[3]),str(empty_link[4])]
+
+	return render_template('results.html', results=new_list, links=string_links, snippets=empty_text )
+
+if __name__ == '__main__':
+    print "Starting debugging server."
+    app.run(debug=True, host='localhost', port=8000)

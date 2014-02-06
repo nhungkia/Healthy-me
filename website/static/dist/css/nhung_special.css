@@ -1,0 +1,33 @@
+
+.hero-widget { text-align: center; padding-top: 20px; padding-bottom: 20px; }
+  .hero-widget .icon { display: block; font-size: 96px; line-height: 96px; margin-bottom: 10px; text-align: center; }
+  .hero-widget var { display: block; height: 64px; font-size: 64px; line-height: 64px; font-style: normal; }
+  .hero-widget label { font-size: 17px; }
+  .hero-widget .options { margin-top: 10px; }
+
+/* Removes the default 20px margin and creates some padding space for the indicators and controls */
+.carousel {
+    margin-bottom: 0;
+	padding: 0 40px 30px 40px;
+}
+/* Reposition the controls slightly */
+.carousel-control {
+	left: -12px;
+}
+.carousel-control.right {
+	right: -12px;
+}
+/* Changes the position of the indicators */
+.carousel-indicators {
+	right: 50%;
+	top: auto;
+	bottom: 0px;
+	margin-right: -19px;
+}
+/* Changes the colour of the indicators */
+.carousel-indicators li {
+	background: #c0c0c0;
+}
+.carousel-indicators .active {
+background: #333333;
+}
